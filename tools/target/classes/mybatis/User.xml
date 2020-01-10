@@ -26,6 +26,19 @@
         </trim>
         where uid = #{user.uid}
     </update>
+	
+	<insert id="insertUser" parameterType="com.test.tools.entity.User">
+		insert into user (username,password,salary) values(
+		<trim prefix="" suffix="">
+			<if test="user.userName != null and user.userName != '' "/>
+			#{user.userName},
+			<if test="user.passWord != null and user.passWord != '' "/>
+			#{user.passWord},
+			<if test="user.salary != null and user.salary != '' "/>
+			#{user.salary}
+		</trim>
+		)
+	</insert>
 
     <delete id="deleteUserById" parameterType="int">
         delete from user where uid = #{id}

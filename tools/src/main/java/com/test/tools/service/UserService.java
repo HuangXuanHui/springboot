@@ -3,6 +3,7 @@ package com.test.tools.service;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
@@ -86,6 +87,11 @@ public class UserService {
                 System.out.println("删除了缓存中的key:" + key);
             }
         }
+        return result;
+    }
+    public int insertUser(User user) {
+    	int result = userDao.insertUser(user);
+    	System.out.println("result====="+result);
         return result;
     }
 }

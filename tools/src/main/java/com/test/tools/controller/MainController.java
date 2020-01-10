@@ -63,6 +63,26 @@ public class MainController {
 
         return "fail";
     }
+    
+    @ResponseBody
+    @RequestMapping("/insertUser")
+    public String insertUser(@RequestParam String username, String password, String salary){
+        System.out.println("username====="+username);
+        System.out.println("password====="+password);
+        System.out.println("salary====="+salary);
+        User user = new User();
+        user.setUid(1);
+        user.setUserName(username);
+        user.setPassWord(password);
+        user.setSalary(Integer.parseInt(salary));
+    	
+        int result = userService.insertUser(user);
+        System.out.println("result====="+result);
+        if(result != 0){
+            return "insert user success";
+        }
+        return "fail";
+    }
 
     @ResponseBody
     @RequestMapping("/deleteUserById")

@@ -10,5 +10,6 @@ public interface UserDao {
 	List<User> queryAll();
 	User findUserById(int id);
     int updateUser(@Param("user") User user);
+    int insertUser(@Param("user") User user);
     int deleteUserById(int id);
 }
